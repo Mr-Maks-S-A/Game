@@ -1,0 +1,9 @@
+#ifndef _CONFIG_GPP_
+#define _CONFIG_GPP_
+
+#define PROGECT_VERSION_MAJOR (0)
+#define PROGECT_VERSION_MINOR (1)
+#define PROGECT_VERSION_PATCH (1)
+#define PROGECT_VERSION "0.1.1"
+
+#endif //_CONFIG_GPP_

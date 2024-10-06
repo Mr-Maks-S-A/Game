@@ -1,0 +1,34 @@
+#установка переменных с наименованиями всех файлов заголовков
+SET(_hedir ${CMAKE_CURRENT_SOURCE_DIR}/include)
+#установка переменных с наименованиями всех файлов кода
+SET(_codir ${CMAKE_CURRENT_SOURCE_DIR}/code)
+
+# обход и получение файлов кода
+file(GLOB_RECURSE V_HPP CONFIGURE_DEPENDS
+                    ${_hedir}/*.h**
+                    ${_hedir}/*.inl
+)
+
+# обход и получение файлов кода
+file(GLOB_RECURSE V_CPP CONFIGURE_DEPENDS
+                    ${_codir}/*.c**
+)
+
+#инклюдирование хедеров и inl  для более удобного доступа к ним
+include_directories(${_hedir})
+
+
+#======================create_config_file_project===========================
+set(PROGECT_VERSION_MAJOR 0) 
+set(PROGECT_VERSION_MINOR 1)
+set(PROGECT_VERSION_PATCH 1)
+set(PROGECT_VERSION "${PROGECT_VERSION_MAJOR}.${PROGECT_VERSION_MINOR}.${PROGECT_VERSION_PATCH}")
+
+configure_file(config.hpp.in "${_hedir}/config.hpp" @ONLY)
+#======================create_config_file_project===========================
+
+#установка исполняемого файла
+add_executable(${PROJECT_NAME})
+
+#привязывание зависимостей к исполняемому файлу
+target_sources(${PROJECT_NAME} PRIVATE main.cpp ${V_HPP} ${V_CPP})
