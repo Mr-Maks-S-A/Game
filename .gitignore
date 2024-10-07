@@ -1,3 +1,10 @@
 *.exe
+*.dll
+*.lib
+*.so
+*.a
+
+SDL/
+
 build/
-01 Out/
+02 Out/

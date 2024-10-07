@@ -16,8 +16,9 @@ SET(CMAKE_C_EXTENSIONS NO)
 # LIST(APPEND CMAKE_CXX_FLAGS "-Wall -Werror -Wsign-compare ") # все варнинги теперь ошибки
 
 # Установка выходных каталогов
-SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/01 Out/${CMAKE_BUILD_TYPE}>") #исполняемые файлы exe/dll
-SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/01 Out/${CMAKE_BUILD_TYPE}/dynamic_lib>") #файлы динамичесских библиотек    .so  / .dll
-SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/01 Out/${CMAKE_BUILD_TYPE}/static_lib>") #файлы статичесских библиотек      .lib / .a
+SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/02 Out/${CMAKE_BUILD_TYPE}>") #исполняемые файлы exe/dll
+SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/02 Out/${CMAKE_BUILD_TYPE}/dynamic_lib>") #файлы динамичесских библиотек    .so  / .dll
+SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "$<1:${CMAKE_SOURCE_DIR}/02 Out/${CMAKE_BUILD_TYPE}/static_lib>") #файлы статичесских библиотек      .lib / .a
 
+add_subdirectory("${CMAKE_SOURCE_DIR}/01 External Lib")  #каталог всех внешних библиотек
 add_subdirectory("${CMAKE_SOURCE_DIR}/00 Src")  #основной проект игры

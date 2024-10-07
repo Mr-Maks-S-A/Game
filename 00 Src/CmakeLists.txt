@@ -32,3 +32,5 @@ add_executable(${PROJECT_NAME})
 
 #привязывание зависимостей к исполняемому файлу
 target_sources(${PROJECT_NAME} PRIVATE main.cpp ${V_HPP} ${V_CPP})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE External_libs)
